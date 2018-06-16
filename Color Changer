@@ -1,0 +1,59 @@
+Private Sub ComboBox_grade_Change()
+
+'********************************************************************************************
+'********************************************************************************************
+'**********               CHANGE ENTRY FORM COLOR ON GRADE CHANGE                 ***********
+'********************************************************************************************
+'********************************************************************************************
+
+'This code is initiated when a change is made to the grade field 
+
+' Find Max# of Questions
+Dim TestYear As Integer    'This is the user entered test year
+Dim TestGrade As Integer   'This is the user entered test grade
+Dim MaxQ As Integer        'This is the maximum number of questions for the indicated test event.
+Dim dark As String         'This will hold the dark colour code for the selected grade
+Dim light As String        'This will hold the light colour code for the selected grade
+
+TestYear = ComboBox_year
+TestGrade = ComboBox_grade
+
+
+MaxQ = WorksheetFunction.VLookup(TestYear & "-" & TestGrade, Worksheets("LookupAnswers").Range("TestEventMaxQuestions"), 2, "True")
+
+If ComboBox_grade = 9 Then                              ' Grade 9 is BLUE
+     dark = &HB4864B
+     light = &HE3CBAD
+     
+    Else
+      If ComboBox_grade = 8 Then                        ' Grade 8 is GREY
+      dark = &H969696
+      light = &HC3C3C3
+   
+      Else
+         If ComboBox_grade = 7 Then                     ' Grade 7 is ORANGE
+         dark = &H80C0FF
+         light = &HC0E0FF
+         
+         Else
+            If ComboBox_grade = 6 Then                  ' Grade 6 is GREEN
+            dark = &H6B7949
+            light = &HADC1A3
+            
+            Else
+               If ComboBox_grade = 5 Then               ' Grade 5 is PURPLE
+               dark = &H967677
+               light = &HECDFE4
+     
+               End If
+            End If
+        End If
+    End If
+End If
+   TopLeftBackground.BackColor = dark
+   BottomLeftBackground.BackColor = light
+   Frame_gender.BackColor = light
+   Frame_optout.BackColor = light
+   Frame_indigenous.BackColor = light
+   Frame_EAL.BackColor = light
+   
