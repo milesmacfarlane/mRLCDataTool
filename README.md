@@ -1,5 +1,7 @@
 # mRLCDataTool
 
+This spreadsheet receives raw test data from a user, scores and codes the input, and generates a variety of reports for different audiences. 
+
 2.21 - June 14, 2018
 Fixed outcome entry for 2018 grade 7 Shape and Space.
 
